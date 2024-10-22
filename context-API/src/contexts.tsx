@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 import Teacher from "./pages/teacher/Teacher";
 import Student from "./pages/student/Student";
 
-export const globalContext = createContext();
+export const globalContext = createContext({});
 
 export const GlobalContextProvider = ({ children }:any) => {
     const [user, setUser] = useState({
@@ -17,7 +17,7 @@ export const GlobalContextProvider = ({ children }:any) => {
     )
 }
 // ....................................................................................................//
-export const studentContext = createContext();
+export const studentContext = createContext({});
 
 export const StudentContextProvider = () => {
     const [studnt, setStudent] = useState({
@@ -33,8 +33,8 @@ export const StudentContextProvider = () => {
 }
 
 
-//...............................................................................................//
-export const TeacherContext= createContext();
+//.....................................................................................................//
+export const TeacherContext= createContext({});
 
 export const TeacherContextProvider=()=>{
     const[sir,setSir]=useState({
