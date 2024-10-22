@@ -19,6 +19,9 @@ function Teacher1(){
 
     return(
         <div><h1>page 1 of Teacher Portal</h1>
+            <div className="bubble bubble1"></div>
+            <div className="bubble bubble2"></div>
+            <div className="bubble bubble3"></div>
            <div>
                 <h3><strong>name from global context by using useContext :</strong>  {user.name}</h3>  
                 <h3><strong>age from global context by using useContext :</strong>  {user.age}</h3> 

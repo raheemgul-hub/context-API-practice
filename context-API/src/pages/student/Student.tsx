@@ -1,10 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import './Student.css'
-import { useContext } from "react";
-import { globalContext } from "../../contexts";
-
 function Student() {
-    const { user }:any = useContext(globalContext);
+
     return (
 
         <div>
@@ -18,12 +15,11 @@ function Student() {
                     <Link to='/teacher'><li>click to move on teacher page</li></Link>
                 </ul>
             </nav>
-           
-            <div>
 
-                <h1><strong>name from globalcontext is :</strong>{user.name}</h1>
-                <h1><strong>age from globalcontext is :</strong>{user.age}</h1>
-            </div>
+
+
+
+
             <Outlet></Outlet>
         </div>
     )

@@ -7,12 +7,15 @@ import Teacher1 from './pages/t1/Teacher-1'
 import Teacher2 from './pages/t2/Teacher-2'
 import Teacher3 from './pages/t3/Teacher-3'
 import { GlobalContextProvider, StudentContextProvider, TeacherContextProvider } from './contexts'
+import TeacherLayout from './pages/teacherlayoutpage/TeacherLayout'
+import StudentLayout from './pages/studentlayoutpage/StudentLayout'
 function App() {
   return (
 <GlobalContextProvider>
     <BrowserRouter>
       <Routes>
           <Route path='/' element={<StudentContextProvider />}>
+            <Route index element={<StudentLayout />}></Route>
           <Route path='student-1' element={<Student1 />}></Route>
           <Route path='student-2' element={<Student2 />}></Route>
           <Route path='student-3' element={<Student3 />}></Route>
@@ -20,6 +23,7 @@ function App() {
 
         
         <Route path='/teacher' element={<TeacherContextProvider />}>
+            <Route index element={<TeacherLayout />}></Route>
           <Route path='teacher-1' element={<Teacher1 />}></Route>
           <Route path='teacher-2' element={<Teacher2 />}></Route>
           <Route path='teacher-3' element={<Teacher3 />}></Route>
