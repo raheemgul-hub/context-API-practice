@@ -9,7 +9,7 @@ function Student() {
 
         <div>
             <nav className="navbar">
-                <div className="navbar-brand"> <h1>Student portal</h1></div>
+                <div className="navbar-brand"> Student portal</div>
 
                 <ul className="navbar-links">
                     <Link to='student-1'><li>page-1</li></Link>
@@ -20,8 +20,9 @@ function Student() {
             </nav>
            
             <div>
-                <h1><strong>name:</strong>{user.name}</h1>
-                <h1><strong>age:</strong>{user.age}</h1>
+
+                <h1><strong>name from globalcontext is :</strong>{user.name}</h1>
+                <h1><strong>age from globalcontext is :</strong>{user.age}</h1>
             </div>
             <Outlet></Outlet>
         </div>

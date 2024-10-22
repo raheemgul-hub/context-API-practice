@@ -20,15 +20,15 @@ export const GlobalContextProvider = ({ children }:any) => {
 export const studentContext = createContext();
 
 export const StudentContextProvider = () => {
-    const [user, setUser] = useState({
-        name: "fahad",
-        age: 20
+    const [studnt, setStudent] = useState({
+        name: "Hamza",
+        age: 30
     })
 
     return (
-        <globalContext.Provider value={{ user, setUser }}>
+        <studentContext.Provider value={{ studnt, setStudent }}>
           <Student/>
-        </globalContext.Provider>
+        </studentContext.Provider>
     )
 }
 
