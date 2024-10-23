@@ -2,7 +2,9 @@ import { useContext } from "react";
 import { globalContext, studentContext } from "../../contexts";
 
 function Student3(){
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { user }:any = useContext(globalContext);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const{studnt}:any= useContext(studentContext)
 return(
 

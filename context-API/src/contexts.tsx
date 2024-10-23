@@ -2,8 +2,9 @@ import { createContext, useState } from "react";
 import Teacher from "./pages/teacher/Teacher";
 import Student from "./pages/student/Student";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const globalContext = createContext({});
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const GlobalContextProvider = ({ children }:any) => {
     const [user, setUser] = useState({
         name: "fahad",
@@ -17,6 +18,7 @@ export const GlobalContextProvider = ({ children }:any) => {
     )
 }
 // ....................................................................................................//
+// eslint-disable-next-line react-refresh/only-export-components
 export const studentContext = createContext({});
 
 export const StudentContextProvider = () => {

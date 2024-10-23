@@ -1,8 +1,11 @@
 import { useContext } from "react";
 import { globalContext, TeacherContext } from "../../contexts";
+
 function Teacher1(){
  
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { user,setUser }:any = useContext(globalContext);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { sir,setSir }:any = useContext(TeacherContext);
 
     const changebutton1 = (newName1: string) => {
