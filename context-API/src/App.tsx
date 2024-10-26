@@ -6,6 +6,7 @@ import Signup from './pages/signup-page/Signup'
 import Navbar from './pages/nav-bar/Navbar'
 import LoginPage from './pages/login-page/LoginPage'
 import HomePage from './pages/homepage/HomePage'
+import ReviewTable from './reviewtable/ReviewTable'
 function App() {
   return (
     <GlobalContextProvider>
@@ -15,6 +16,7 @@ function App() {
             <Route index element={<HomePage />}></Route>
             <Route path='signup' element={<Signup />}></Route>
             <Route path='loginpage'  element={<LoginPage />}></Route>
+            <Route path='reviewtable' element={<ReviewTable />}></Route>
           </Route>
 
         </Routes>

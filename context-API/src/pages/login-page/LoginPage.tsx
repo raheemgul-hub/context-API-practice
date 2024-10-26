@@ -1,23 +1,43 @@
+import axios from "axios";
 import { useState } from "react";
-import { FieldError, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 function LoginPage() {
-    const [formData, setFormData] = useState([]);
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        reset,
-    } = useForm();
+    const [formData] = useState<IData[]>([]);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    const formSubmit = (data) => {
-        console.log("Data Received", data);
-        const newEmployee = { ...data };
+    const Base_URL = 'https://pickup-jobs-api.codegenio.com/api'
 
-        const updatedFormData = [...formData, newEmployee];
-        setFormData(updatedFormData);
-        localStorage.setItem("employees", JSON.stringify(updatedFormData));
-        reset();
+    //function for form submit//
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const formSubmit = (data: any) => {
+        const userRequest = axios.post(Base_URL + '/public/login', {
+            email: data.email,
+            password: data.password
+
+        })
+        userRequest.then(function (response) {
+            console.log(response)
+            if (response.data.success === true) {
+                alert("Login successful");
+                localStorage.setItem("token", response.data.data.token);
+                formData.push(
+                    {
+                        id: response.data.data.id,
+                        firstname: response.data.data.firstName,
+                        lastname: response.data.data.lastName,
+                        email: response.data.data.email,
+                        phone: response.data.data.phoneNumber,
+                        status: response.data.data.status
+                    }
+                )
+                localStorage.setItem("Data", JSON.stringify(formData))
+                reset()
+            } else {
+                alert("Login failed");
+            }
+        })
+
     };
     return (
         <div className="form-container">
@@ -25,12 +45,7 @@ function LoginPage() {
                 <h3>
                     Login for PickUp-Jobs
                 </h3>
-                {/* input and error for first name  */}
-                <div className="errors">
-                    {errors.firstname && (
-                        <span>{(errors.firstname as FieldError).message}</span>
-                    )}
-                </div>
+
                 {/* input for the email */}
                 <div className="errors">
                     {errors.email && <span>{errors.email.message}</span>}
@@ -54,7 +69,7 @@ function LoginPage() {
                     {...register("password", {
                         required: { value: true, message: "*Password is required." },
                         minLength: {
-                            value: 6,
+                            value: 3,
                             message: "*Password must be at least 6 characters.",
                         },
                     })}
@@ -65,3 +80,11 @@ function LoginPage() {
     )
 }
 export default LoginPage
+export interface IData {
+    id: number;
+    firstname: string;
+    lastname: string;
+    email: string;
+    phone: number;
+    status: string;
+}

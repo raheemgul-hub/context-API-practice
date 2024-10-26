@@ -1,0 +1,88 @@
+
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Ensures borders are not doubled */
+    background-color: #fff;
+    border: 2px solid #ddd;
+    /* Border around the entire table */
+}
+
+.review-table th,
+.review-table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    /* Borders around each cell */
+}
+
+.review-table th {
+    background-color: #6a11cb;
+    color: #fff;
+}
+
+.review-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.review-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.review-table td {
+    color: #555;
+}
+
+/* Additional styling for hover effects */
+.review-table tr:hover td {
+    color: #333;
+    font-weight: bold;
+}
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.review-table th,
+.review-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.review-table th {
+    background-color: #6a11cb;
+    color: #fff;
+}
+
+.review-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.review-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.review-table td {
+    color: #555;
+}
+
+/* Additional styling for hover effects */
+.review-table tr:hover td {
+    color: #333;
+    font-weight: bold;
+}
