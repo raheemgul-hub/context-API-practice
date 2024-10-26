@@ -1,0 +1,65 @@
+ html {
+     background: linear-gradient(135deg, #283c86, #45a247);
+     font-family: Arial, sans-serif;
+
+ }
+
+ /* Centered container */
+ .container {
+    margin-top: 16%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+
+     color: #ffffff;
+     text-align: center;
+ }
+
+ /* Professional multi-colored heading */
+ .job-text {
+     font-size: 3rem;
+     font-weight: bold;
+     background: linear-gradient(90deg, #ff7e5f, #feb47b, #ff6a88, #ff4757, #8e44ad);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     animation: colorShift 5s linear infinite;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+ }
+
+ /* Gradient subtext animation */
+ .subtext {
+     font-size: 1.5rem;
+     margin-top: 1rem;
+     background: linear-gradient(90deg, #f8ffae, #43c6ac);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     animation: textSlide 5s ease-in-out infinite;
+ }
+
+ /* Keyframes for color shifting */
+ @keyframes colorShift {
+     0% {
+         background-position: 0%;
+     }
+
+     100% {
+         background-position: 200%;
+     }
+ }
+
+ /* Keyframes for text slide */
+ @keyframes textSlide {
+
+     0%,
+     100% {
+         transform: translateY(0);
+         opacity: 1;
+     }
+
+     50% {
+         transform: translateY(10px);
+         opacity: 0.8;
+     }
+ }
