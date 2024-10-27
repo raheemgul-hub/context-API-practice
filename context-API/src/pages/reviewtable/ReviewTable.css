@@ -7,6 +7,7 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     border: 2px solid #eaeaea;
+    margin-top: 10px;
 }
 
 /* Header styling */
@@ -79,4 +80,13 @@
 
 .review-table tbody td {
     border-bottom: 2px solid #ddd;
+}
+.fa-star {
+    color: #e4e5e9;
+    /* Unfilled star color */
+}
+
+.checked {
+    color: #ffc107;
+    /* Filled star color */
 }

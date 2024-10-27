@@ -4,37 +4,104 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2c3e50;
-    padding: 1rem;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    /* Starting colors for gradient */
+    padding: 1rem 2rem;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    animation: gradientAnimation 10s ease infinite, fadeIn 0.5s ease forwards;
 }
 
 .navbar-brand {
-    color: #ecf0f1;
-    font-size: 1.5rem;
+    color: #ffffff;
+    font-size: 2rem;
+    /* Increased font size */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.navbar-brand:hover {
+    color: #f39c12;
+    transform: scale(1.05);
+    /* Slightly larger on hover */
+}
+
+/* Navbar Links */
 .navbar-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
+    /* Increased gap between links */
+    align-items: center;
 }
 
 .navbar-links a {
     color: #ecf0f1;
     text-decoration: none;
-    transition: color 0.3s;
+    font-size: 1.1rem;
+    /* Increased font size */
+    transition: color 0.4s ease, transform 0.3s ease, border-bottom 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+    /* Added padding for better touch target */
 }
 
 .navbar-links a:hover {
     color: #3498db;
+    transform: translateY(-2px);
+    /* Lift effect on hover */
 }
 
+/* Adding an underline effect on hover */
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    /* Adjusted position */
+    height: 2px;
+    background-color: #3498db;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* General anchor tag styling */
 a {
     color: white;
     text-decoration: none;
 }
 
+/* Background color animation */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+    }
 
+    25% {
+        background: linear-gradient(135deg, #2a5298, #4b79a1);
+    }
+
+    50% {
+        background: linear-gradient(135deg, #4b79a1, #3498db);
+        /* Added a new color */
+    }
+
+    75% {
+        background: linear-gradient(135deg, #3498db, #1e3c72);
+        /* Added a new color */
+    }
+
+    100% {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+    }
+}
+
+/* Fade-in effect for smoother load */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -45,6 +112,7 @@ a {
     }
 }
 
+/* Slide down effect for smoother navbar reveal */
 @keyframes slideDown {
     0% {
         transform: translateY(-20px);
@@ -52,5 +120,20 @@ a {
 
     100% {
         transform: translateY(0);
+    }
+}
+
+/* Additional media query for responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 1rem;
+        /* Adjusted gap for mobile */
+        margin-top: 0.5rem;
     }
 }

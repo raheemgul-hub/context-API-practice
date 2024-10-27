@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import"./ReviewTable.css"
+import "./ReviewTable.css"
 import { Link } from "react-router-dom";
-function ReviewTable(){
+function ReviewTable() {
 
     const Base_URL = 'https://pickup-jobs-api.codegenio.com/api/';
     const RelativePath = 'customer/review/list?'
@@ -16,30 +16,31 @@ function ReviewTable(){
     }, []);
 
     useEffect(() => {
-        if(token){
-        const usersReq = axios.get( Base_URL + RelativePath, {
-            
-            headers:{
-                'Authorization': 'Bearer ' + token
-            },
-            params: {
-                page: 0
-            }
-        });
-            
-        usersReq.then((response) => {
-            if (response.data.success===true)  {
-                setUsers(response.data.data.data);
-            } else {
-                console.log('Something is wrong with backend server');
-            }
-           
-        });
-       
-    }
+        if (token) {
+            const usersReq = axios.get(Base_URL + RelativePath, {
+
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
+                params: {
+                    page: 0
+                }
+            });
+
+            usersReq.then((response) => {
+                if (response.data.success === true) {
+                    setUsers(response.data.data.data);
+                } else {
+                    console.log('Something is wrong with backend server');
+                }
+
+            });
+
+        }
     }, [token]);
 
-    return(
+
+    return (
         <div className="review-table-container">
             <div className="review-header">
                 <h2>Customer Reviews</h2>
@@ -51,16 +52,17 @@ function ReviewTable(){
                         <th>ID</th>
                         <th>Comment</th>
                         <th>Rating</th>
-                        <th>bookingRequestId</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((data:any) => (
+                    {users.map((data: any) => (
                         <tr key={data.id}>
                             <td>{data.id}</td>
                             <td>{data.comment}</td>
-                            <td>{data.rating}</td>
-                            <td>{data.bookingRequestId}</td>
+                            <td>{data.rating}{Array.from({ length: 5 }, (_, index) => (
+                                <span key={index} className={index < data.rating ? "fa fa-star checked" : "fa fa-star"}></span>
+                            ))}</td>
                         </tr>
                     ))}
                 </tbody>
