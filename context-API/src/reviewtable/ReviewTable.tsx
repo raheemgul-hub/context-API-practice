@@ -39,14 +39,17 @@ function ReviewTable(){
     }, [token]);
 
     return(
-        <div className="table-container ">
-            <h2>Customer Reviews</h2>
-            <table className="review-table" >
+        <div className="review-table-container">
+            <div className="review-header">
+                <h2>Customer Reviews</h2>
+                <button className="add-review-button">Add Review</button>
+            </div>
+            <table className="review-table">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Comment</th>
-                        <th>Rating</th> 
+                        <th>Rating</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,7 +58,6 @@ function ReviewTable(){
                             <td>{data.id}</td>
                             <td>{data.comment}</td>
                             <td>{data.rating}</td>
-                          
                         </tr>
                     ))}
                 </tbody>

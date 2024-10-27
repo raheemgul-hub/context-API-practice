@@ -1,88 +1,62 @@
-
-
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-}
-
-.review-table {
-    width: 100%;
-    border-collapse: collapse;
-    /* Ensures borders are not doubled */
-    background-color: #fff;
-    border: 2px solid #ddd;
-    /* Border around the entire table */
-}
-
-.review-table th,
-.review-table td {
-    padding: 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-    /* Borders around each cell */
-}
-
-.review-table th {
-    background-color: #6a11cb;
-    color: #fff;
-}
-
-.review-table tr:nth-child(even) {
+.review-table-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
     background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-.review-table tr:hover {
-    background-color: #f1f1f1;
-}
-
-.review-table td {
-    color: #555;
-}
-
-/* Additional styling for hover effects */
-.review-table tr:hover td {
-    color: #333;
-    font-weight: bold;
-}
-h2 {
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
+}
+
+.review-header h2 {
+    font-size: 1.5rem;
     color: #333;
-    text-align: center;
+    margin: 0;
+}
+
+.add-review-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-review-button:hover {
+    background-color: #0056b3;
 }
 
 .review-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
 }
 
 .review-table th,
 .review-table td {
-    padding: 15px;
+    padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
 .review-table th {
-    background-color: #6a11cb;
-    color: #fff;
-}
-
-.review-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.review-table tr:hover {
-    background-color: #f1f1f1;
+    background-color: #007bff;
+    color: white;
 }
 
 .review-table td {
     color: #555;
 }
 
-/* Additional styling for hover effects */
-.review-table tr:hover td {
-    color: #333;
-    font-weight: bold;
+.review-table tr:hover {
+    background-color: #f1f1f1;
 }
