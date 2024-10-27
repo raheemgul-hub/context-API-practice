@@ -4,17 +4,12 @@ import './Signup.css'
 
 function Signup() {
     const [formData, setFormData] = useState([]);
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        reset,
-    } = useForm();
-
+    const {register,handleSubmit,formState: { errors },reset,} = useForm();
+    const Base_URL = 'https://pickup-jobs-api.codegenio.com/api/';
+    const RelativePath = 'customer/review/list?'
     
     const formSubmit = (data) => {
-     const updatedFormData = [...formData, data];
-        setFormData(updatedFormData);
+    
 
         reset();
     };

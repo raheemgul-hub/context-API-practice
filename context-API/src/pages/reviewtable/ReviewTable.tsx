@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import"./ReviewTable.css"
+import { Link } from "react-router-dom";
 function ReviewTable(){
 
     const Base_URL = 'https://pickup-jobs-api.codegenio.com/api/';
@@ -22,7 +23,7 @@ function ReviewTable(){
                 'Authorization': 'Bearer ' + token
             },
             params: {
-                page: 1
+                page: 0
             }
         });
             
@@ -42,7 +43,7 @@ function ReviewTable(){
         <div className="review-table-container">
             <div className="review-header">
                 <h2>Customer Reviews</h2>
-                <button className="add-review-button">Add Review</button>
+                <Link to={"/addreview"}> <button className="add-review-button">Add Review</button></Link>
             </div>
             <table className="review-table">
                 <thead>
@@ -50,6 +51,7 @@ function ReviewTable(){
                         <th>ID</th>
                         <th>Comment</th>
                         <th>Rating</th>
+                        <th>bookingRequestId</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +60,7 @@ function ReviewTable(){
                             <td>{data.id}</td>
                             <td>{data.comment}</td>
                             <td>{data.rating}</td>
+                            <td>{data.bookingRequestId}</td>
                         </tr>
                     ))}
                 </tbody>

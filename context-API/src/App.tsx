@@ -6,7 +6,8 @@ import Signup from './pages/signup-page/Signup'
 import Navbar from './pages/nav-bar/Navbar'
 import LoginPage from './pages/login-page/LoginPage'
 import HomePage from './pages/homepage/HomePage'
-import ReviewTable from './reviewtable/ReviewTable'
+import ReviewTable from './pages/reviewtable/ReviewTable'
+import AddReview from './pages/add-review/AddReview'
 function App() {
   return (
     <GlobalContextProvider>
@@ -17,6 +18,7 @@ function App() {
             <Route path='signup' element={<Signup />}></Route>
             <Route path='loginpage'  element={<LoginPage />}></Route>
             <Route path='reviewtable' element={<ReviewTable />}></Route>
+            <Route path='addreview' element={<AddReview />}></Route>
           </Route>
 
         </Routes>
