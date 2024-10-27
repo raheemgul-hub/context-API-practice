@@ -55,7 +55,7 @@ function ReviewTable(){
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((data) => (
+                    {users.map((data:any) => (
                         <tr key={data.id}>
                             <td>{data.id}</td>
                             <td>{data.comment}</td>

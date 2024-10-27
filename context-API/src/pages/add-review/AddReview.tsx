@@ -1,10 +1,10 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FieldError, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 function AddReview() {
-    const [formData, setFormData] = useState<any[]>([]);
+
     const { register, handleSubmit, formState: { errors }, reset, } = useForm();
     const Base_URL = 'https://pickup-jobs-api.codegenio.com/api';
     const RelativePath = '/customer/review/save';
@@ -34,20 +34,20 @@ function AddReview() {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
-            }).then((response) => {
-                console.log(response)
-                if (response.data.success === true) {
-                    alert(response.data.message)
-                    setFormData(response.data.data);
-                    const newBookingId = bookingId + 1;
-                    setBookingId(newBookingId);  // Increment the booking ID
-                    localStorage.setItem("id", JSON.stringify(newBookingId));
-                    reset();
-                    navigate("/reviewtable");
-                } else {
-                    console.log('Something is wrong with the backend server');
-                }
             })
+                .then((response) => {
+                    console.log(response)
+                    if (response.data.success === true) {
+                        alert(response.data.message)
+                        const newBookingId = bookingId + 1;
+                        setBookingId(newBookingId);  // Increment the booking ID
+                        localStorage.setItem("id", JSON.stringify(newBookingId));
+                        reset();
+                        navigate("/reviewtable");
+                    } else {
+                        console.log('Something is wrong with the backend server');
+                    }
+                })
         }
     };
 

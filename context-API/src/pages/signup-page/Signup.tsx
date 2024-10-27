@@ -1,15 +1,40 @@
-import { useState } from "react";
+
 import { FieldError, useForm } from "react-hook-form";
 import './Signup.css'
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
-    const [formData, setFormData] = useState([]);
-    const {register,handleSubmit,formState: { errors },reset,} = useForm();
+
+    const { register, handleSubmit, formState: { errors }, reset, } = useForm();
     const Base_URL = 'https://pickup-jobs-api.codegenio.com/api/';
-    const RelativePath = 'customer/review/list?'
-    
-    const formSubmit = (data) => {
-    
+    const RelativePath = 'public/customer-register'
+    const navigate = useNavigate();
+
+    const formSubmit = (data:any) => {
+        axios.post(Base_URL + RelativePath, {
+            password: data.password,
+            confirmPassword: data.confirmpassword, //String Required
+            email: data.email, //Email String Required
+            firstName: data.firstname, //String Required
+            lastName: data.lastname, //String Required
+            phoneNumber: data.phone //String Required
+
+        }, {
+
+        })
+            .then((response) => {
+                console.log(response)
+                if (response.data.success === true) {
+                    alert(response.data.message)
+
+                    reset();
+                    navigate("/signup");
+                } else {
+                    alert(response.data.message)
+
+                }
+            })
 
         reset();
     };
@@ -60,7 +85,9 @@ function Signup() {
 
                 {/* input for the email */}
                 <div className="errors">
-                    {errors.email && <span>{errors.email.message}</span>}
+                    {errors.email && (
+                        <span>{(errors.email as FieldError).message}</span>
+                    )}
                 </div>
                 <input
                     type="email"
@@ -71,7 +98,9 @@ function Signup() {
                     })}
                 />
                 <div className="errors">
-                    {errors.phone && <span>{errors.phone.message}</span>}
+                    {errors.phone && (
+                        <span>{(errors.phone as FieldError).message}</span>
+                    )}
                 </div>
 
                 <input
@@ -84,8 +113,10 @@ function Signup() {
                 />
 
                 <div className="errors">
-                    {errors.password && <p>{errors.password.message}</p>}
-                    </div>
+                    {errors.password && (
+                        <span>{(errors.password as FieldError).message}</span>
+                    )}
+                </div>
 
                 <input
                     type="password"
@@ -99,11 +130,24 @@ function Signup() {
                         },
                     })}
                 />
+                <div className="errors">
+                    {errors.confirmpassword && (
+                        <span>{(errors.confirmpassword as FieldError).message}</span>
+                    )}
+                </div>
 
-                
-
-
-
+                <input
+                    type="password"
+                    className="custom-input"
+                    placeholder="Confirm Password"
+                    {...register("confirmpassword", {
+                        required: { value: true, message: "*Password is required." },
+                        minLength: {
+                            value: 6,
+                            message: "*Password must be at least 6 characters.",
+                        },
+                    })}
+                />
                 <button type="submit" className="custom-btn">SIGN-UP</button>
             </form>
         </div>
