@@ -11,6 +11,7 @@ function Navbar() {
                 <ul className="navbar-links">
                     <Link to='signup'><li>signup</li></Link>
                     <Link to='loginpage'><li>Login</li></Link>
+                    <Link to='booking'><li>Booking</li></Link>
                     <Link to='reviewtable'><li>Reviews</li></Link>
                    
                 </ul>

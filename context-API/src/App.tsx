@@ -8,6 +8,8 @@ import LoginPage from './pages/login-page/LoginPage'
 import HomePage from './pages/homepage/HomePage'
 import ReviewTable from './pages/reviewtable/ReviewTable'
 import AddReview from './pages/add-review/AddReview'
+import Booking from './pages/booking-form/Booking'
+import BookingTable from './pages/booking-table/BookingTable'
 function App() {
   return (
     <GlobalContextProvider>
@@ -19,6 +21,8 @@ function App() {
             <Route path='loginpage'  element={<LoginPage />}></Route>
             <Route path='reviewtable' element={<ReviewTable />}></Route>
             <Route path='addreview' element={<AddReview />}></Route>
+            <Route path='booking' element={<Booking/>}></Route>
+            <Route path='bookingtable' element={<BookingTable />}></Route>
           </Route>
 
         </Routes>

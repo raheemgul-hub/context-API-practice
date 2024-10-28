@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
     const [formData] = useState<IData[]>([]);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-
+    const navigate = useNavigate();
     const Base_URL = 'https://pickup-jobs-api.codegenio.com/api'
 
     //function for form submit//
@@ -20,6 +21,7 @@ function LoginPage() {
             console.log(response)
             if (response.data.success === true) {
                 alert("Login successful");
+                navigate("/bookingtable");
                 localStorage.setItem("token", response.data.data.token);
                 formData.push(
                     {

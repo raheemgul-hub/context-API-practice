@@ -29,7 +29,7 @@ function Signup() {
                     alert(response.data.message)
 
                     reset();
-                    navigate("/signup");
+                    navigate("/loginpage");
                 } else {
                     alert(response.data.message)
 
