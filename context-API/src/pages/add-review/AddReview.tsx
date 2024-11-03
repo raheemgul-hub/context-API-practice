@@ -9,8 +9,8 @@ function AddReview() {
     const Base_URL = 'https://pickup-jobs-api.codegenio.com/api';
     const RelativePath = '/customer/review/save';
     const [token, setToken] = useState("");
-    const [bookingId, setBookingId] = useState(930);
-    let toUserId = 122
+    const [bookingId, setBookingId] = useState(1200);
+    let toUserId = 125
     const navigate = useNavigate(); // Initialize useNavigate
     useEffect(() => {
         const storedData = localStorage.getItem("token");
@@ -45,7 +45,7 @@ function AddReview() {
                         reset();
                         navigate("/reviewtable");
                     } else {
-                        console.log('Something is wrong with the backend server');
+                        alert('Something is wrong with the backend server');
                     }
                 })
         }

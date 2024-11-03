@@ -8,6 +8,11 @@ function ReviewTable() {
     const RelativePath = 'customer/review/list?'
     const [users, setUsers] = useState([]);
     const [token, setToken] = useState("");
+    // Separate states for each search input
+    const [searchId, setSearchId] = useState("");
+    const [searchComment, setSearchComment] = useState("");
+    const [searchRating, setSearchRating] = useState("");
+
     useEffect(() => {
         const storedData = localStorage.getItem("token");
         if (storedData) {
@@ -38,14 +43,54 @@ function ReviewTable() {
 
         }
     }, [token]);
-
-
+    // Filter users based on search inputs
+    const filteredUsers = users.filter((data:any) => {
+        return (
+            (searchId === "" || data.id.toString().includes(searchId)) &&
+            (searchComment === "" || data.comment.toLowerCase().includes(searchComment.toLowerCase())) &&
+            (searchRating === "" || data.rating.toString().includes(searchRating))
+        );
+    });
     return (
         <div className="review-table-container">
             <div className="review-header">
                 <h2>Customer Reviews</h2>
                 <Link to={"/addreview"}> <button className="add-review-button">Add Review</button></Link>
             </div>
+            {/* Search Inputs */}
+            <div className="review-search-container">
+                <div className="review-search-input-group">
+                    <label className="review-search-label">ID:</label>
+                    <input
+                        type="text"
+                        className="review-search-input"
+                        placeholder="Search by ID"
+                        value={searchId}
+                        onChange={(e) => setSearchId(e.target.value)}
+                    />
+                </div>
+                <div className="review-search-input-group">
+                    <label className="review-search-label">Comment:</label>
+                    <input
+                        type="text"
+                        className="review-search-input"
+                        placeholder="Search by Comment"
+                        value={searchComment}
+                        onChange={(e) => setSearchComment(e.target.value)}
+                    />
+                </div>
+                <div className="review-search-input-group">
+                    <label className="review-search-label">Rating:</label>
+                    <input
+                        type="text"
+                        className="review-search-input"
+                        placeholder="Search by Rating"
+                        value={searchRating}
+                        onChange={(e) => setSearchRating(e.target.value)}
+                    />
+                </div>
+            </div>
+
             <table className="review-table">
                 <thead>
                     <tr>
@@ -56,7 +101,7 @@ function ReviewTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((data: any) => (
+                    {filteredUsers.map((data: any) => (
                         <tr key={data.id}>
                             <td>{data.id}</td>
                             <td>{data.comment}</td>
