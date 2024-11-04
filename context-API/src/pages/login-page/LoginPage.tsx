@@ -19,7 +19,9 @@ function LoginPage() {
         })
         userRequest.then(function (response) {
             console.log(response)
+
             if (response.data.success === true) {
+                reset()
                 alert("Login successful");
                 navigate("/bookingtable");
                 localStorage.setItem("token", response.data.data.token);
@@ -34,7 +36,7 @@ function LoginPage() {
                     }
                 )
                 localStorage.setItem("Data", JSON.stringify(formData))
-                reset()
+              
             } else {
                 alert("Login failed");
             }

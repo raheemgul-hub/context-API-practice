@@ -10,6 +10,8 @@ import ReviewTable from './pages/reviewtable/ReviewTable'
 import AddReview from './pages/add-review/AddReview'
 import Booking from './pages/booking-form/Booking'
 import BookingTable from './pages/booking-table/BookingTable'
+import Logout from './pages/logout/Logout'
+
 function App() {
   return (
     <GlobalContextProvider>
@@ -23,6 +25,7 @@ function App() {
             <Route path='addreview' element={<AddReview />}></Route>
             <Route path='booking' element={<Booking/>}></Route>
             <Route path='bookingtable' element={<BookingTable />}></Route>
+            <Route path='logout' element={<Logout />}></Route>
           </Route>
 
         </Routes>

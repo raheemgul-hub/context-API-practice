@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack"; // Import Home icon
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"; 
 import "./Navbar.css";
 
 function Navbar() {
@@ -17,7 +17,7 @@ function Navbar() {
                             </IconButton>
                         </Link>
                     </Tooltip>
-                    PickUp-Jobs
+                    PickUp - Jobs
                 </div>
 
                 <ul className="navbar-links">
@@ -37,9 +37,9 @@ function Navbar() {
                     <Link to="bookingtable">
                         <li>Booking Table</li>
                     </Link>
+                    <Link to="logout">Logout</Link>
                 </ul>
             </nav>
-
             <Outlet />
         </div>
     );
