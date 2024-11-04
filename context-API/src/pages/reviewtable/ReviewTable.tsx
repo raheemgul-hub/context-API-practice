@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "./ReviewTable.css"
 import { Link } from "react-router-dom";
+import { Button, Tooltip } from "@mui/material";
 function ReviewTable() {
 
     const Base_URL = 'https://pickup-jobs-api.codegenio.com/api/';
@@ -44,7 +45,7 @@ function ReviewTable() {
         }
     }, [token]);
     // Filter users based on search inputs
-    const filteredUsers = users.filter((data:any) => {
+    const filteredUsers = users.filter((data: any) => {
         return (
             (searchId === "" || data.id.toString().includes(searchId)) &&
             (searchComment === "" || data.comment.toLowerCase().includes(searchComment.toLowerCase())) &&
@@ -55,7 +56,15 @@ function ReviewTable() {
         <div className="review-table-container">
             <div className="review-header">
                 <h2>Customer Reviews</h2>
-                <Link to={"/addreview"}> <button className="add-review-button">Add Review</button></Link>
+                <Link to="/addreview">
+                    <Tooltip title="Give Feedback"  placement="left-start">
+                        <Button variant="contained" color="primary">
+                            Add Review
+                        </Button>
+                    </Tooltip>
+                </Link>
+
+
             </div>
             {/* Search Inputs */}
             <div className="review-search-container">

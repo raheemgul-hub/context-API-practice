@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./BookingTable.css"
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 function BookingTable(){
     const Base_URL = 'https://pickup-jobs-api.codegenio.com/api/';
     const RelativePath = 'customer/request/list?'
@@ -41,7 +42,7 @@ function BookingTable(){
         <div className="table-container">
             <div className="table-header">
                 <h2>Booking List</h2>
-                <Link to="/booking"> <button className="add-booking-button">Booking-Now</button></Link>
+                <Link to="/booking"> <Button variant="contained" color="inherit" sx={{ backgroundColor: 'black' }}>Booking-Now</Button></Link>
             </div>
             <div className="table-scroll">
                 <table className="booking-table">

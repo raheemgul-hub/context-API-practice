@@ -1,6 +1,6 @@
 html {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    background: lightblue;
     color: #333;
     margin: 0;
     padding: 0;
@@ -8,24 +8,8 @@ html {
     animation: gradientShift 10s infinite alternate;
 }
 
-@keyframes gradientShift {
-    0% {
-        background: linear-gradient(135deg, #ffecd2, #fcb69f);
-    }
 
-    50% {
-        background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-    }
 
-    100% {
-        background: linear-gradient(135deg, #d4fc79, #96e6a1);
-    }
-}
-
-body {
-   
-    transition: all 0.3s ease;
-}
 
 
  /* Centered container */
@@ -44,7 +28,7 @@ body {
  .job-text {
      font-size: 3rem;
      font-weight: bold;
-     background: linear-gradient(90deg, #ff7e5f, #feb47b, #ff6a88, #ff4757, #8e44ad);
+    background: linear-gradient(90deg, #6b1d1d, #8b2d2d, #7a1b2e, #5a0e1f, #2f0b4f);
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
      animation: colorShift 5s linear infinite;
@@ -56,7 +40,7 @@ body {
  .subtext {
      font-size: 1.5rem;
      margin-top: 1rem;
-     background: linear-gradient(90deg, #f8ffae, #43c6ac);
+     background: linear-gradient(90deg, #656a29, #085042);
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
      animation: textSlide 5s ease-in-out infinite;
